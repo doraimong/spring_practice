@@ -18,16 +18,14 @@ public class BoardController {
     @GetMapping("board/write")
     public String boardWriteForm(){
 
-        return "boardwrite";
+        return "boardwrite";//template(view)
     }
 
     @PostMapping("/board/writepro")
     public String boardWritePro(Board board){
 
-       // System.out.println(title + " "+ content );
-        System.out.println("controller");
         System.out.println(board);
-       boardService.write(board);
+        boardService.write(board);
 
         return "";
     }
@@ -40,4 +38,10 @@ public class BoardController {
         return "boardlist";
     }
 
+    @GetMapping("/board/view")//localhost:8080/board/view?id=1
+    public String boardView(Model model, Integer id){
+
+        model.addAttribute("board", boardService.boardView(id));
+        return "boardview";//template(view)
+    }
 }
