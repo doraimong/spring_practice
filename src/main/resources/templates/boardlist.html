@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--thymeleaf 문법 사용을 명시-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    .layout {
+        width: 500px;
+        margin:0 auto;
+        margin-top: 40px;
+    }
+</style>
+<body>
+
+    <div class="layout">
+        <table>
+            <thead>
+                <tr>
+                    <th>글번호</th>
+                    <th>제목</th>
+                </tr>
+            </thead>
+            <tbody>
+<!--            list안에 board를 꺼낸다.-->
+                <tr th:each="board : ${list}">
+<!--                   text를 꺼내겟다. -->
+                    <td th:text="${board.id}">1</td>
+                    <td th:text="${board.title}">제목입니다.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
